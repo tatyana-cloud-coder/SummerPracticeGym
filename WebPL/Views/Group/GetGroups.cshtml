@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@RenderPage("/Views/MyGym/Menu.cshtml")
+<h3>Список групп: </h3>
+<form method="get" action=@Url.Action("AddGroup", "Group")>
+    <input type="submit" value="Добавить группу" />
+</form>
+<br />
+<table>
+    <thead>
+        <tr>
+            <td>Название</td>
+            <td>Количество человек</td>
+            <td>Тренировочный день</td>
+            <td>Начало тренировки</td>
+            <td>Конец тренировки</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Number</td>
+                    <td>@item.WorkingDay</td>
+                    <td>@item.TimeToBegin</td>
+                    <td>@item.TimeToEnd</td>
+                    <td>@Html.ActionLink("Удалить группу", "DeleteGroup", new { idGroup = item.IDGroup }) </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+
+

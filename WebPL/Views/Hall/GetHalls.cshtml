@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@RenderPage("/Views/MyGym/Menu.cshtml")
+<h3>Список залов: </h3>
+<form method="get" action=@Url.Action("AddHall", "Hall")>
+    <input type="submit" value="Добавить зал" />
+</form>
+<br />
+<table>
+    <thead>
+        <tr>
+            <td>Название зала</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.NameOfHall</td>
+                    <td>@Html.ActionLink("Удалить зал", "DeleteHall", new { idHall = item.IDHall }) </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

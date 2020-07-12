@@ -1,0 +1,9 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<form method="get" action=@Url.Action("GetProfile", "User")>
+    <input type="submit" value="Мой профиль" />
+</form>
+<form method="get" action=@Url.Action("SignIn", "User")>
+    <input type="submit" value="Выйти" />
+</form>

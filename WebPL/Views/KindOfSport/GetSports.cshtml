@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@RenderPage("/Views/MyGym/Menu.cshtml")
+<h3>Список видов спорта: </h3>
+<form method="get" action=@Url.Action("AddSport", "KindOfSport")>
+    <input type="submit" value="Добавить вид спорта" />
+</form>
+<br />
+<table>
+    <thead>
+        <tr>
+            <td>Название вида спорта</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.NameOfKind</td>
+                    <td>@Html.ActionLink("Удалить вид спорта", "DeleteSport", new { idSport = item.IDKindOfSport }) </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+

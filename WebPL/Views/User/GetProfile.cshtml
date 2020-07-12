@@ -1,0 +1,41 @@
+﻿@model Entities.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table>
+    <thead>
+        <tr>
+            <td>Описание</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Имя </td>
+            <td>@TempData.Peek("FirstName")</td>
+            <td>@Html.ActionLink("Сменить имя", "UpdateFirstName")</td>
+        </tr>
+        <tr>
+            <td>Фамилия </td>
+            <td>@TempData.Peek("LastName")</td>
+            <td>@Html.ActionLink("Сменить фамилию", "UpdateLastName")</td>
+        </tr>
+        <tr>
+            <td>Номер телефона</td>
+            <td>@TempData.Peek("TelephoneNumber")</td>
+            <td>@Html.ActionLink("Сменить номер телефона", "UpdateTelephoneNumber")</td>
+        </tr>
+        <tr>
+            <td>Адрес электронной почты </td>
+            <td>@TempData.Peek("Email")</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Логин </td>
+            <td>@TempData.Peek("Login") </td>
+            <td>&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+

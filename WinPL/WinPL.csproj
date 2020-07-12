@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{25EAE8D4-9944-43BD-9C5D-3C773BFCDEB5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WinPL</RootNamespace>
+    <AssemblyName>WinPL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClient.Designer.cs">
+      <DependentUpon>AddClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddClientByGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClientByGroup.Designer.cs">
+      <DependentUpon>AddClientByGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddCoach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCoach.Designer.cs">
+      <DependentUpon>AddCoach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGroup.Designer.cs">
+      <DependentUpon>AddGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddGroupByCoach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGroupByCoach.Designer.cs">
+      <DependentUpon>AddGroupByCoach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddHall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddHall.Designer.cs">
+      <DependentUpon>AddHall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddKindOfSport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddKindOfSport.Designer.cs">
+      <DependentUpon>AddKindOfSport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSportByCoach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSportByCoach.Designer.cs">
+      <DependentUpon>AddSportByCoach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authorization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authorization.Designer.cs">
+      <DependentUpon>Authorization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clients.Designer.cs">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Coaches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Coaches.Designer.cs">
+      <DependentUpon>Coaches.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoachGraphic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoachGraphic.Designer.cs">
+      <DependentUpon>CoachGraphic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Groups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Groups.Designer.cs">
+      <DependentUpon>Groups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gym.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gym.Designer.cs">
+      <DependentUpon>Gym.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Halls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Halls.Designer.cs">
+      <DependentUpon>Halls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KindOfSports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KindOfSports.Designer.cs">
+      <DependentUpon>KindOfSports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KindSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KindSchedule.Designer.cs">
+      <DependentUpon>KindSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoveClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveClient.Designer.cs">
+      <DependentUpon>RemoveClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveCoach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveCoach.Designer.cs">
+      <DependentUpon>RemoveCoach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveGroup.Designer.cs">
+      <DependentUpon>RemoveGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveHall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveHall.Designer.cs">
+      <DependentUpon>RemoveHall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveKindOfSport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveKindOfSport.Designer.cs">
+      <DependentUpon>RemoveKindOfSport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchCoach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchCoach.Designer.cs">
+      <DependentUpon>SearchCoach.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddClient.resx">
+      <DependentUpon>AddClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddClientByGroup.resx">
+      <DependentUpon>AddClientByGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCoach.resx">
+      <DependentUpon>AddCoach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddGroup.resx">
+      <DependentUpon>AddGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddGroupByCoach.resx">
+      <DependentUpon>AddGroupByCoach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddHall.resx">
+      <DependentUpon>AddHall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddKindOfSport.resx">
+      <DependentUpon>AddKindOfSport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSportByCoach.resx">
+      <DependentUpon>AddSportByCoach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authorization.resx">
+      <DependentUpon>Authorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clients.resx">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Coaches.resx">
+      <DependentUpon>Coaches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CoachGraphic.resx">
+      <DependentUpon>CoachGraphic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Groups.resx">
+      <DependentUpon>Groups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gym.resx">
+      <DependentUpon>Gym.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Halls.resx">
+      <DependentUpon>Halls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KindOfSports.resx">
+      <DependentUpon>KindOfSports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KindSchedule.resx">
+      <DependentUpon>KindSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="RemoveClient.resx">
+      <DependentUpon>RemoveClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveCoach.resx">
+      <DependentUpon>RemoveCoach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveGroup.resx">
+      <DependentUpon>RemoveGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveHall.resx">
+      <DependentUpon>RemoveHall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveKindOfSport.resx">
+      <DependentUpon>RemoveKindOfSport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchCoach.resx">
+      <DependentUpon>SearchCoach.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{3d556862-3091-4623-bc19-f59a88854804}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gym.BLL\Gym.BLL.csproj">
+      <Project>{1c3a3849-d7cc-45a2-8db0-e51986c2fece}</Project>
+      <Name>Gym.BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

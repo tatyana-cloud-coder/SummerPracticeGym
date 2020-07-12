@@ -1,0 +1,24 @@
+﻿@model Entities.Client
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<h3> Добавление клиента</h3>
+<br />
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <p>@Html.ValidationMessageFor(m => m.FirstName)</p>
+    <p>Имя клиента: @Html.EditorFor(m => m.FirstName)</p>
+    <p>@Html.ValidationMessageFor(m => m.LastName)</p>
+    <p>Фамилия клиента: @Html.EditorFor(m => m.LastName)</p>
+    <p>@Html.ValidationMessageFor(m => m.TelephoneNumber)</p>
+    <p>Номер телефона клиента: @Html.EditorFor(m => m.TelephoneNumber)</p>
+    <p>@Html.ValidationMessageFor(m => m.FirstNameOfFavoriteCoach)</p>
+    <p>Имя любимого тренера: @Html.EditorFor(m => m.FirstNameOfFavoriteCoach)</p>
+    <p>@Html.ValidationMessageFor(m => m.LastNameOfFavoriteCoach)</p>
+    <p>Фамилия любимого тренера: @Html.EditorFor(m => m.LastNameOfFavoriteCoach)</p>
+    <input type="submit" value="Добавить клиента" />
+}
+
+
+

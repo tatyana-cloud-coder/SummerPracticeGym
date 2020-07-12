@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@RenderPage("/Views/MyGym/Menu.cshtml")
+<form method="get" action="@Url.Action("SearchCoach", "Coach")">
+    <label for="search">Введите имя:</label>
+    <input type="text" name="name" id="search" />
+    <button type="submit">Найти </button>
+</form>
+<h3>Список тренеров:</h3>
+<form method="get" action=@Url.Action("AddCoach", "Coach")>
+    <input type="submit" value="Добавить тренера" />
+</form>
+
+<br />
+<table>
+    <thead>
+        <tr>
+            <td>Имя</td>
+            <td>Фамилия</td>
+            <td>Номер телефона</td>
+            <td>Зал ответственности</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.TelephoneNumber</td>
+                    <td>@item.MainHall</td>
+                    <td>@Html.ActionLink("Удалить тренера", "DeleteCoach", new { idCoach = item.IDCoach }) </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+

@@ -1,0 +1,20 @@
+﻿@model Entities.Coach
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3> Добавление тренера</h3>
+<br />
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <p>@Html.ValidationMessageFor(m => m.FirstName)</p>
+    <p>Имя тренера: @Html.EditorFor(m => m.FirstName)</p>
+    <p>@Html.ValidationMessageFor(m => m.LastName)</p>
+    <p>Фамилия тренера: @Html.EditorFor(m => m.LastName)</p>
+    <p>@Html.ValidationMessageFor(m => m.TelephoneNumber)</p>
+    <p>Номер телефона тренера: @Html.EditorFor(m => m.TelephoneNumber)</p>
+    <p>@Html.ValidationMessageFor(m => m.MainHall)</p>
+    <p>Название зала ответственности: @Html.EditorFor(m => m.MainHall)</p>
+    <input type="submit" value="Добавить тренера" />
+}
+

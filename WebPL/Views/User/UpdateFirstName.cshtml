@@ -1,0 +1,13 @@
+﻿@model Entities.User
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>Изменение имени</h3>
+@using (Html.BeginForm())
+    {
+        <p>Старое имя: @TempData.Peek("FirstName")</p>
+        <p>@Html.ValidationMessageFor(m => m.FirstName)</p>
+        <p>Новое имя: @Html.EditorFor(m => m.FirstName)</p>
+        <input type="submit" value="Cохранить изменения" />
+    }
+

@@ -1,0 +1,24 @@
+﻿@model Entities.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>Регистрация</h3>
+<br />
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <p>@Html.ValidationMessageFor(m => m.FirstName)</p>
+        <p>Имя: @Html.EditorFor(m => m.FirstName)</p>
+        <p>@Html.ValidationMessageFor(m => m.LastName)</p>
+        <p>Фамилия: @Html.EditorFor(m => m.LastName)</p>
+        <p>@Html.ValidationMessageFor(m => m.TelephoneNumber)</p>
+        <p>Номер телефона: @Html.EditorFor(m => m.TelephoneNumber)</p>
+        <p>@Html.ValidationMessageFor(m => m.EmailAddress)</p>
+        <p>Адрес электронной почты: @Html.EditorFor(m => m.EmailAddress)</p>
+        <p>@Html.ValidationMessageFor(m => m.Login)</p>
+        <p>Логин: @Html.EditorFor(m => m.Login)</p>
+        <p>@Html.ValidationMessageFor(m => m.Password)</p>
+        <p>Пароль: @Html.EditorFor(m => m.Password)</p>
+        <input type="submit" value="Создать учетную запись" />
+    }
+

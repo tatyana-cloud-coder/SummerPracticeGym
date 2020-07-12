@@ -1,0 +1,13 @@
+﻿@model Entities.User
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>Изменение фамилии</h3>
+@using (Html.BeginForm())
+{
+    <p>Старая фамилия: @TempData.Peek("LastName")</p>
+    <p>@Html.ValidationMessageFor(m => m.LastName)</p>
+    <p>Новая фамилия: @Html.EditorFor(m => m.LastName)</p>
+    <input type="submit" value="Cохранить изменения" />
+}
+

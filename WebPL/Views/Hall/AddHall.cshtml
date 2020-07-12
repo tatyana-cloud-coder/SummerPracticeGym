@@ -1,0 +1,16 @@
+﻿@model Entities.Hall
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3> Добавление зала</h3>
+<br />
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <p>@Html.ValidationMessageFor(m => m.NameOfHall)</p>
+    <p>Название зала: @Html.EditorFor(m => m.NameOfHall)</p>
+    <input type="submit" value="Добавить зал" />
+}
+
+
+

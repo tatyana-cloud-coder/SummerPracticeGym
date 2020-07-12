@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@RenderPage("/Views/MyGym/Menu.cshtml")
+<h3> Выбор объекта </h3>
+<form method="get" action=@Url.Action("GetClients", "Client")>
+    <input type="submit" value="Клиент" />
+</form>
+<form method="get" action=@Url.Action("GetCoaches", "Coach")>
+    <input type="submit" value="Тренер" />
+</form>
+<form method="get" action=@Url.Action("GetGroups", "Group")>
+    <input type="submit" value="Группа" />
+</form>
+<form method="get" action=@Url.Action("GetHalls", "Hall")>
+    <input type="submit" value="Зал" />
+</form>
+<form method="get" action=@Url.Action("GetSports", "KindOfSport")>
+    <input type="submit" value="Вид спорта" />
+</form>
+
+

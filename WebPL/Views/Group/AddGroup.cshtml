@@ -1,0 +1,21 @@
+﻿@model Entities.Group
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<h3> Добавление группы</h3>
+<br />
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <p>@Html.ValidationMessageFor(m => m.Name)</p>
+    <p>Название группы: @Html.EditorFor(m => m.Name)</p>
+    <p>@Html.ValidationMessageFor(m => m.WorkingDay)</p>
+    <p>День тренировки: @Html.EditorFor(m => m.WorkingDay)</p>
+    <p>@Html.ValidationMessageFor(m => m.TimeToBegin)</p>
+    <p>Начало тренирровки: @Html.EditorFor(m => m.TimeToBegin)</p>
+    <p>@Html.ValidationMessageFor(m => m.TimeToEnd)</p>
+    <p>Конец тренировки: @Html.EditorFor(m => m.TimeToEnd)</p>
+    <input type="submit" value="Добавить группу" />
+}
+
+

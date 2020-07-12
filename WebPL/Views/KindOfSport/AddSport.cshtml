@@ -1,0 +1,14 @@
+﻿@model Entities.KindOfSport
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<h3> Добавление вида спорта</h3>
+<br />
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <p>@Html.ValidationMessageFor(m => m.NameOfKind)</p>
+    <p>Название вида спорта: @Html.EditorFor(m => m.NameOfKind)</p>
+    <input type="submit" value="Добавить вид спорта" />
+}
+

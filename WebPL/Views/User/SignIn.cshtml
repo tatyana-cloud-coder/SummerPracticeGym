@@ -1,0 +1,19 @@
+﻿@model Entities.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Views/css/style.css" />
+<h2> Вход в систему</h2>
+<br />
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true);
+    <p>@Html.ValidationMessageFor(m => m.Login)</p>
+    <p>Логин: @Html.EditorFor(m => m.Login)</p>
+    <p>@Html.ValidationMessageFor(m => m.Password)</p>
+    <p>Пароль: @Html.EditorFor(m => m.Password)</p>
+    <input type="submit" value="Войти в систему" />
+}
+<form method="get" action=@Url.Action("SignUp", "User")>
+    <input type="submit" value="Зарегистрироваться" />
+</form>
