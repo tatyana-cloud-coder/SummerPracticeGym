@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 namespace ModelValidationAttributes
 {
@@ -10,10 +7,12 @@ namespace ModelValidationAttributes
     {
         public override bool IsValid(object value)
         {
+            var result = value != null ? value.ToString() : "";
             if (value != null)
             {
-                return value.ToString().All(c => Char.IsLetter(c))
-                    && Char.IsUpper(value.ToString()[0]);
+                return result.All(c => Char.IsLetter(c))
+                    && 
+                    Char.IsUpper(result[0]);
             } else
             {
                 return true;

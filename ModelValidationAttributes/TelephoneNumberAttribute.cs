@@ -10,9 +10,12 @@ namespace ModelValidationAttributes
     {
         public override bool IsValid(object value)
         {
-            return base.IsValid(value) && value.ToString().Length == 11 
-                && value.ToString().All(c=>Char.IsDigit(c));
+            var result = value != null ? value.ToString() : "";
+            return base.IsValid(value) 
+                && 
+                result.Length == 11 
+                && 
+                result.All(c=>Char.IsDigit(c));
         }
-
     }
 }
