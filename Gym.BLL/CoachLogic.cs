@@ -1,65 +1,72 @@
 ﻿using System;
 using System.Collections.Generic;
 using Entities;
-using Gym.DAL;
 using Gym.DAL.Interfaces;
 using Gym.BLL.Interfaces;
+using System.Linq;
 namespace Gym.BLL
 {
     public class CoachLogic: ICoachLogic
     {
-        private ICoachDao coachDao;
-        public CoachLogic ()
+        private ICoachDao _coachDao;
+        public CoachLogic (ICoachDao coachDao)
         {
-            coachDao = new CoachDaoDB();
+            _coachDao = coachDao;
         }
         public IEnumerable <Coach> GetCoaches()
         {
-            return coachDao.GetCoaches();
+            return _coachDao.GetCoaches();
         }
         public string GetFirstNameNeedCoach(int idCoach)
         {
-            return coachDao.GetFirstNameNeedCoach(idCoach); 
+            return _coachDao.GetFirstNameNeedCoach(idCoach); 
         }
         public string GetLastNameNeedCoach(int idCoach)
         {
-            return coachDao.GetLastNameNeedCoach(idCoach);
+            return _coachDao.GetLastNameNeedCoach(idCoach);
         }
-        public int SelectIdNeedCoach(string firstName, string lastName)
+        public string SelectIdNeedCoach(string firstName, string lastName)
         {
-            return coachDao.SelectIdNeedCoach(firstName, lastName);
+            var result = _coachDao.SelectIdNeedCoach(firstName, lastName).ToList() ;
+            if (result.Any())
+            {
+                return result.FirstOrDefault().ToString();
+            } else
+            {
+                return null;
+            }
         }
         public IEnumerable <int> GetSportsByCoach (int idCoach)
         {
-            return coachDao.GetSportsByCoach(idCoach);
+            return _coachDao.GetSportsByCoach(idCoach);
         }
         public IEnumerable<string> GetNamesOfSportsByCoach(int idOfKind)
         {
-            return coachDao.GetNamesOfSportsByCoach(idOfKind);
+            return _coachDao.GetNamesOfSportsByCoach(idOfKind);
         }
         public IEnumerable<int> GetNeedNote(string nameGroup, int idCoach)
         {
-            return coachDao.GetNeedNote(nameGroup, idCoach);
+            return _coachDao.GetNeedNote(nameGroup, idCoach);
         }
         public int CountOfPeople(int idCoach, int day)
         {
-            return coachDao.CountOfPeople(idCoach, day);
+            return _coachDao.CountOfPeople(idCoach, day);
         }
         public void AddCoach(Coach coach)
         {
-            coachDao.AddCoach(coach);
+            _coachDao.AddCoach(coach);
         }
         public void AddSportByCoach(int idCoach, string nameOfKind)
         {
-            coachDao.AddSportByCoach(idCoach, nameOfKind);
+            _coachDao.AddSportByCoach(idCoach, nameOfKind);
         }
         public void AddGroupByCoach(int idCoach, string nameGroup)
         {
-            coachDao.AddGroupByCoach(idCoach, nameGroup);
+            _coachDao.AddGroupByCoach(idCoach, nameGroup);
         }
         public void RemoveCoach (int idCoach)
         {
-            coachDao.RemoveCoach(idCoach);
+            _coachDao.RemoveCoach(idCoach);
         }
         public IEnumerable <Coach> SearchCoach (string firstName)
         {

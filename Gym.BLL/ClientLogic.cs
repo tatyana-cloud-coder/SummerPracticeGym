@@ -7,26 +7,26 @@ namespace Gym.BLL
 {
     public class ClientLogic: IClientLogic
     {
-        private IClientDao clientDao;
-        public ClientLogic ()
+        private IClientDao _clientDao;
+        public ClientLogic (IClientDao clientDao)
         {
-            clientDao = new ClientDaoDB();
+            _clientDao = clientDao;
         }
         public IEnumerable <Client> GetClients()
         {
-            return clientDao.GetClients();
+            return _clientDao.GetClients();
         }
         public IEnumerable <Client> GetNeedClients(int idClient)
         {
-            return clientDao.GetNeedClients(idClient);
+            return _clientDao.GetNeedClients(idClient);
         }
         public void AddClient(Client client)
         {
-            clientDao.AddClient(client);
+            _clientDao.AddClient(client);
         }
         public void RemoveClient(int idClient)
         {
-            clientDao.RemoveClient(idClient);
+            _clientDao.RemoveClient(idClient);
         }
     }
 }

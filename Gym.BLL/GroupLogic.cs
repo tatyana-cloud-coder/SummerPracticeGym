@@ -7,42 +7,42 @@ namespace Gym.BLL
 {
     public class GroupLogic:IGroupLogic
     {
-        private IGroupDao groupDao;
-        public GroupLogic()
+        private IGroupDao _groupDao;
+        public GroupLogic(IGroupDao groupDao)
         {
-            groupDao = new GroupDaoDB();
+            _groupDao = groupDao;
         }
         public IEnumerable <Group> GetGroups()
         {
-            return groupDao.GetGroups();
+            return _groupDao.GetGroups();
         }
         public IEnumerable <Group> GetNeedGroups(int idGroup)
         {
-            return groupDao.GetNeedGroups(idGroup);
+            return _groupDao.GetNeedGroups(idGroup);
         }
         public IEnumerable <Group> GetNeedGroups (string name)
         {
-            return groupDao.GetNeedGroups(name);
+            return _groupDao.GetNeedGroups(name);
         }
         public IEnumerable<int> SelectDeletedGroup (string name)
         {
-            return groupDao.GetDeletedGroups(name);
+            return _groupDao.GetDeletedGroups(name);
         }
         public IEnumerable<int> GetNeedClientByGroup(string nameGroup, int idClient)
         {
-            return groupDao.GetNeedClientByGroup(idClient, nameGroup);
+            return _groupDao.GetNeedClientByGroup(idClient, nameGroup);
         }
         public void AddGroup (Group group)
         {
-            groupDao.AddGroup(group);
+            _groupDao.AddGroup(group);
         }
         public void AddClientByGroup(string name, int idCoach)
         {
-            groupDao.AddClientByGroup(name, idCoach);
+            _groupDao.AddClientByGroup(name, idCoach);
         }
         public void RemoveGroup (int idGroup)
         {
-            groupDao.RemoveGroup(idGroup);
+            _groupDao.RemoveGroup(idGroup);
         }
     }
 }

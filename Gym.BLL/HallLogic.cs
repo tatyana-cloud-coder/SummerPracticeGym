@@ -3,34 +3,44 @@ using Entities;
 using Gym.DAL;
 using Gym.DAL.Interfaces;
 using Gym.BLL.Interfaces;
+using System;
+using System.Linq;
+
 namespace Gym.BLL
 {
     public class HallLogic:IHallLogic
     {
-        private IHallDao hallDao;
-        public HallLogic()
+        private IHallDao _hallDao;
+        public HallLogic(IHallDao hallDao)
         {
-            hallDao = new HallDaoDB();
+            _hallDao = hallDao;
         }
         public IEnumerable <Hall> GetHalls()
         {
-            return hallDao.GetHalls();
+            return _hallDao.GetHalls();
         }
         public string GetNeedHalls(int idHall)
         {
-            return hallDao.GetNeedHalls(idHall);
+            return _hallDao.GetNeedHalls(idHall);
         }
-        public int  GetNeedHalls(string nameOfHall)
+        public string  GetNeedHalls(string nameOfHall)
         {
-            return hallDao.GetNeedHalls(nameOfHall);
+            var result = _hallDao.GetNeedHalls(nameOfHall);
+            if (result.Any())
+            {
+                return result.FirstOrDefault().ToString();
+            } else
+            {
+                return null;
+            }
         }
         public void AddHall (Hall hall)
         {
-            hallDao.AddHall(hall);
+            _hallDao.AddHall(hall);
         }
         public void RemoveHall (int idHall)
         {
-            hallDao.RemoveHall(idHall);
+            _hallDao.RemoveHall(idHall);
         }
     }
 }

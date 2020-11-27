@@ -7,34 +7,34 @@ namespace Gym.BLL
 {
     public class KindOfSportLogic: IKindOfSportLogic
     {
-        private IKindOfSportDao kindOfSportDao;
-        public KindOfSportLogic ()
+        private IKindOfSportDao _kindOfSportDao;
+        public KindOfSportLogic (IKindOfSportDao kindOfSportLogic)
         {
-            kindOfSportDao = new KindOfSportDaoDB();
+            _kindOfSportDao = kindOfSportLogic;
         }
         public IEnumerable <KindOfSport> GetKindOfSports()
         {
-            return kindOfSportDao.GetKindOfSports();
+            return _kindOfSportDao.GetKindOfSports();
         }
         public IEnumerable <KindOfSport> GetNeedKindOfSports(int idKind)
         {
-            return kindOfSportDao.GetNeedKindOfSports(idKind);
+            return _kindOfSportDao.GetNeedKindOfSports(idKind);
         }
         public IEnumerable <KindOfSport> GetNeedKindOfSports (string name)
         {
-            return kindOfSportDao.GetNeedKindOfSports(name);
+            return _kindOfSportDao.GetNeedKindOfSports(name);
         }
         public IEnumerable<string> Schedule(string nameOfKind, int day)
         {
-            return kindOfSportDao.Schedule(nameOfKind, day);
+            return _kindOfSportDao.Schedule(nameOfKind, day);
         }
         public void AddKindOfSport (KindOfSport kindOfSport)
         {
-            kindOfSportDao.AddKindOfSport(kindOfSport);
+            _kindOfSportDao.AddKindOfSport(kindOfSport);
         }
         public void RemoveKindOfSport (int idKindOfSport)
         {
-            kindOfSportDao.RemoveKindOfSport(idKindOfSport);
+            _kindOfSportDao.RemoveKindOfSport(idKindOfSport);
         }
     }
 }
