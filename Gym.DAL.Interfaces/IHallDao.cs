@@ -10,7 +10,7 @@ namespace Gym.DAL.Interfaces
     {
         IEnumerable<Hall> GetHalls();
         string GetNeedHalls(int idHall);
-        int GetNeedHalls(string nameOfHall);
+        IEnumerable<int> GetNeedHalls(string nameOfHall);
         void AddHall(Hall hall);
         void RemoveHall(int idHall);
     }
