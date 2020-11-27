@@ -10,7 +10,7 @@ namespace Gym.BLL.Interfaces
     {
         IEnumerable<Hall> GetHalls();
         string GetNeedHalls(int idHall);
-        int  GetNeedHalls (string nameOfHall);
+        string  GetNeedHalls (string nameOfHall);
         void AddHall(Hall hall);
         void RemoveHall(int idHall);
     }

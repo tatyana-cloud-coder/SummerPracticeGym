@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Entities;
 namespace Gym.BLL.Interfaces
 {
@@ -11,7 +7,7 @@ namespace Gym.BLL.Interfaces
         IEnumerable<Coach> GetCoaches();
         string GetFirstNameNeedCoach(int idCoach);
         string GetLastNameNeedCoach(int idCoach);
-        int SelectIdNeedCoach(string firstName, string lastName);
+        string SelectIdNeedCoach(string firstName, string lastName);
         IEnumerable<int> GetSportsByCoach(int idCoach);
         IEnumerable<string> GetNamesOfSportsByCoach(int idOfKind);
         IEnumerable<int> GetNeedNote(string nameGroup, int idCoach);
