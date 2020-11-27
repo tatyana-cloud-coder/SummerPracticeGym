@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Entities;
 using System.Data.SqlClient;
 using Gym.DAL.Interfaces;
@@ -11,10 +8,10 @@ namespace Gym.DAL
     public class CoachDaoDB : ICoachDao
     {
         private string connectionstring;
-        private IHallDao hallDao;
+        private IHallDao _hallDao;
         public CoachDaoDB()
         {
-            hallDao = new HallDaoDB();
+            _hallDao = new HallDaoDB();
             connectionstring = @"Data Source=.\SQLEXPRESS;Initial Catalog=Gym;Integrated Security=True";
         }
         public IEnumerable<Coach> GetCoaches()
@@ -41,7 +38,7 @@ namespace Gym.DAL
                             FirstName = firstName,
                             LastName = lastName,
                             TelephoneNumber = telephoneNumber,
-                            MainHall = hallDao.GetNeedHalls((int)read["MainHall"])
+                            MainHall = _hallDao.GetNeedHalls((int)read["MainHall"])
                         };
                         result.Add(coach);
                     }
@@ -61,7 +58,6 @@ namespace Gym.DAL
             }
             return result;
         }
-            
         public string GetFirstNameNeedCoach(int idCoach)
         {
             var result = new List<string>();
@@ -96,8 +92,9 @@ namespace Gym.DAL
             }
             return result.FirstOrDefault();
         }
-         public int SelectIdNeedCoach(string firstName, string lastName)
+        public IEnumerable<int> SelectIdNeedCoach(string firstName, string lastName)
         {
+            var result = new List<int>();
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {
                 SqlCommand cmd = new SqlCommand("SelectIdNeedCoach", connection);  //SQL-команда
@@ -105,10 +102,12 @@ namespace Gym.DAL
                 cmd.Parameters.AddWithValue("@firstName", firstName);
                 cmd.Parameters.AddWithValue("@lastName", lastName);
                 connection.Open();
-                SqlParameter retValue = cmd.Parameters.Add("@result", System.Data.SqlDbType.Int);
-                retValue.Direction = System.Data.ParameterDirection.ReturnValue;
-                int result = cmd.ExecuteNonQuery();
-                return (int)retValue.Value;
+                SqlDataReader read = cmd.ExecuteReader();
+                while (read.Read())  //пока читаем
+                {
+                    result.Add((int)read["IDCoah"]);
+                }
+                return result;
             }
         }
         public IEnumerable <int> GetSportsByCoach (int idCoach)
@@ -229,7 +228,6 @@ namespace Gym.DAL
                 connection.Open();
                 cmd.ExecuteNonQuery();
             }
-
         }
     }
 }

@@ -49,19 +49,22 @@ namespace Gym.DAL
             }
             return result.FirstOrDefault();
         }
-        public int GetNeedHalls(string nameOfHall)
+        public IEnumerable<int> GetNeedHalls(string nameOfHall)
         {
+            var result = new List<int>();
             using (SqlConnection connection = new SqlConnection(connectionstring))
             {
                 SqlCommand cmd = new SqlCommand("GetNeedHallsByName", connection);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nameOfHall", nameOfHall);
                 connection.Open();
-                SqlParameter retValue = cmd.Parameters.Add("@id", System.Data.SqlDbType.Int);
-                retValue.Direction = System.Data.ParameterDirection.ReturnValue;
-                int result = cmd.ExecuteNonQuery();
-                return (int)retValue.Value;
+                SqlDataReader read = cmd.ExecuteReader();
+                while (read.Read())  //пока читаем
+                {
+                    result.Add((int)read["IDHall"]);
+                }
             }
+            return result;
         }
         public void AddHall(Hall hall)
         {
